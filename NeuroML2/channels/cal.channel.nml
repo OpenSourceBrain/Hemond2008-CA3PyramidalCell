@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NeuroML_ionChannel">
+
+    <notes>NeuroML file containing a single ion channel</notes>
+
+    <ionChannel id="cal" conductance="1pS" type="ionChannelHH" species="ca">
+        
+        <notes>L-type Ca++ channel description (from Jaffe 1994 - modeled by Lawrence 2006, modified by Migliore)</notes>
+        
+        <gateHHtauInf id="m" instances="2">
+            <q10Settings type="q10ExpTemp" q10Factor="5" experimentalTemp="25degC"/>
+            <timeCourse type="Hemond_cal_taum"/>
+            <steadyState type="Hemond_cal_ssm"/>
+        </gateHHtauInf>
+        
+        <gate id="h" type="gateHHInstantaneous" instances="1">
+            <steadyState type="Hemond_cal_ssh"/>
+        </gate>
+                            
+    </ionChannel>
+    
+    
+    <ComponentType name="Hemond_cal_taum"
+                   extends="baseVoltageDepTime"
+                   description="Tau parameter to describe cal in Hemond 2008">
+        
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        
+        <Requirement name="rateScale" dimension="none"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            
+            <DerivedVariable name="alpha" dimension="none" value="exp(0.0378*2*(V-4))"/>
+            <DerivedVariable name="beta" dimension="none" value="exp(0.0378*2*0.1*(V-4))"/>
+
+            <DerivedVariable name="tmp" dimension="none" value="beta / (0.1*(1 + alpha))"/>
+            <ConditionalDerivedVariable name="t" dimension="time" exposure="t" >
+                <Case condition="(tmp / rateScale) .lt. (0.2 / rateScale)" value="0.2 * TIME_SCALE"/>
+                <Case value="tmp * TIME_SCALE"/>                
+            </ConditionalDerivedVariable>
+
+        </Dynamics>
+
+    </ComponentType>
+    
+    
+    <ComponentType name="Hemond_cal_ssm"
+                   extends="baseVoltageDepVariable"
+                   description="steadyState parameter to describe can in Hemond 2008">
+        
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+        
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            
+            <DerivedVariable name="alpha" dimension="none" value="(156.9 * (V-81.5)/10) / (1 - exp((V-81.5)/-10))"/>
+            <DerivedVariable name="beta" dimension="none" value="0.29 * exp(V/-10.86)"/>
+            
+            <DerivedVariable name="x" exposure="x" dimension="none" value="alpha / (alpha + beta)"/>
+        </Dynamics>
+
+    </ComponentType>
+    
+    
+    <ComponentType name="Hemond_cal_ssh"
+                   extends="baseVoltageConcDepVariable"
+                   description="steadyState parameter to describe cal in Hemond 2008">
+        
+        <Constant name="CONC_SCALE" dimension="concentration" value="1 mM"/>
+
+        <Dynamics>
+            <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
+            <DerivedVariable name="x" dimension="none" value="0.001 / (0.001 + ca_conc_i)" exposure="x"/>
+        </Dynamics>
+
+    </ComponentType>
+    
+</neuroml>

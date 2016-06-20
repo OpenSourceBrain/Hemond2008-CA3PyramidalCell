@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Lems>
+
+    <Target component="sim1"/>
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="Test_Ca.net.nml"/>
+
+    <Include file="../../capool.nml"/>
+    <Include file="ica_clamp.channel.nml"/>
+    
+    <Include file="../../cal.channel.nml"/>
+    <Include file="../../can.channel.nml"/>
+    <Include file="../../cat.channel.nml"/>
+    <Include file="../../cagk.channel.nml"/>
+    <Include file="../../KahpM95.channel.nml"/>
+ 
+    <!-- Simulation specifications -->
+    <Simulation id="sim1" length="200ms" step="0.001ms" target="net1">
+
+      <Display id="d1" title="V (mM)" timeScale="1ms" xmin="0" xmax="200" ymin="-90" ymax="-30">
+        <Line id="v" quantity="pop/0/cell1/v" scale="1mV"  color="#ff0000" timeScale="1ms"/>
+      </Display>
+      
+      <Display id="d2" title="cai (mM)" timeScale="1ms" xmin="0" xmax="200" ymin="-100" ymax="1800">
+        <Line id="cai" quantity="pop/0/cell1/caConc" scale="1e-6 mM"  color="#00ff00" timeScale="1ms"/>
+      </Display>
+      
+      <OutputFile id="of0" fileName="lems_ca.dat">
+        <OutputColumn id="v" quantity="pop/0/cell1/v"/>
+        <OutputColumn id="cai" quantity="pop/0/cell1/caConc"/>
+      </OutputFile>
+    
+    </Simulation>
+  
+</Lems>

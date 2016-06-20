@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NeuroML_ionChannel">
+
+    <notes>NeuroML file containing a single ion channel</notes>
+
+    <ionChannel id="KahpM95" conductance="1pS" type="ionChannelHH" species="k">
+        
+        <notes>Borg-Graham type generic K-AHP channel descriptions (from Borg and Graham 1995, modeled by Migliore, modified by Lazarewicz)</notes>
+        
+        <gateHHtauInf id="w" instances="1">
+            <q10Settings type="q10ExpTemp" q10Factor="3" experimentalTemp="24degC"/>
+            <timeCourse type="Hemond_w_tau"/>
+            <steadyState type="Hemond_w_ss"/>
+        </gateHHtauInf>
+    
+    </ionChannel>
+    
+    
+    <ComponentType name="Hemond_w_tau"
+                   extends="baseVoltageConcDepTime"
+                   description="Tau parameter to describe KahpM95 in Hemond 2008">
+        
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="CONC_SCALE" dimension="concentration" value="1 mM"/>
+
+        <Dynamics>
+            <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
+            
+            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i*ca_conc_i*ca_conc_i*ca_conc_i"/>
+            
+            <DerivedVariable name="t" dimension="time" value="( 1 / (5e-3 + alpha) ) * TIME_SCALE" exposure="t" />
+        </Dynamics>
+
+    </ComponentType>
+    
+    
+    <ComponentType name="Hemond_w_ss"
+                   extends="baseVoltageConcDepVariable"
+                   description="steadyState parameter to describe KahpM95 in Hemond 2008">
+        
+        <Constant name="CONC_SCALE" dimension="concentration" value="1 mM"/>
+        
+        <Requirement name="rateScale" dimension="none"/>
+
+        <Dynamics>
+            <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
+            
+            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i*ca_conc_i*ca_conc_i*ca_conc_i"/>
+            
+            <DerivedVariable name="x" dimension="none" value="alpha / (5e-3 + alpha)" exposure="x" />
+        </Dynamics>
+
+    </ComponentType>
+
+</neuroml>

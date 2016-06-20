@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NeuroML_ionChannel">
+
+    <notes>NeuroML file containing a single ion channel</notes>
+
+    <ionChannel id="hd" conductance="1pS" type="ionChannelHH" species="non_specific">
+        
+        <notes>H-current description, using non_specific current (from Magee 1998, modeled by Migliore)</notes>
+        
+        <gateHHtauInf id="l" instances="1">
+            <q10Settings type="q10ExpTemp" q10Factor="4.5" experimentalTemp="33degC"/>
+            <timeCourse type="Hemond_h_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="1" midpoint="-73mV" scale="-8mV"/>
+        </gateHHtauInf>
+    
+    </ionChannel>
+    
+    
+    <ComponentType name="Hemond_h_tau"
+                   extends="baseVoltageDepTime"
+                   description="Tau parameter to describe h in Hemond 2008">
+        
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            
+            <DerivedVariable name="alpha" dimension="none" value="exp(0.0378*2.2*(V+75))"/>
+            <DerivedVariable name="beta" dimension="none" value="exp(0.0378*2.2*0.4*(V+75))"/>
+            
+            <DerivedVariable name="t" dimension="time" value="( beta / (0.011*(1 + alpha)) ) * TIME_SCALE" exposure="t"/>
+            
+        </Dynamics>
+
+    </ComponentType>
+
+</neuroml>
