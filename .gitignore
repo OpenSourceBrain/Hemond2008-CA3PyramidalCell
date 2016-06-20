@@ -1,0 +1,10 @@
+x86_64
+*~
+NeuroML2/*.dat
+NeuroML2/*.svg
+NeuroML2/*.mod
+/NeuroML2/*.hoc
+/NeuroML2/*nrn.py
+NeuroML2/channels/test_Cadynamics/NeuroML2/*.mod
+NeuroML2/channels/test_Cadynamics/NeuroML2/*.hoc
+NeuroML2/channels/test_Cadynamics/NeuroML2/*nrn.py
