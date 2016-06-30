@@ -16,8 +16,8 @@
         
         <gate id="h" type="gateHHratesTauInf" instances="1">
             <q10Settings type="q10ExpTemp" q10Factor="2" experimentalTemp="24 degC"/>
-            <forwardRate type="HHExpLinearRate" rate="0.045per_ms" midpoint="-6mV" scale="1.5mV"/>
-            <reverseRate type="HHExpLinearRate" rate="0.015per_ms" midpoint="-6mV" scale="-1.5mV"/>
+            <forwardRate type="HHExpLinearRate" rate="0.045per_ms" midpoint="-21mV" scale="1.5mV"/>
+            <reverseRate type="HHExpLinearRate" rate="0.015per_ms" midpoint="-21mV" scale="-1.5mV"/>
             <timeCourse type="Hemond_nax_tauh"/>
             <steadyState type="HHSigmoidVariable" rate="1" midpoint="-26mV" scale="-4mV"/>
         </gate>
