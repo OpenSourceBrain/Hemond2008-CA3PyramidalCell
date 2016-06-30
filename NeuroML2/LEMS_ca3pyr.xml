@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Lems>
+
+  <!-- CA3 pyramidal cell -->
+
+    <Target component="sim1"/>
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    <Include file="ca3pyr.net.nml"/>
+    <Include file="ca3pyr.cell.nml"/>
+        
+    <Include file="/channels/leak_chan.channel.nml"/>
+    <Include file="/channels/capool.nml"/>
+    <Include file="/channels/cal.channel.nml"/> 
+    <Include file="/channels/can.channel.nml"/> 
+    <Include file="/channels/cat.channel.nml"/>
+    <Include file="/channels/cagk.channel.nml"/>
+    <Include file="/channels/KahpM95.channel.nml"/>
+    <Include file="/channels/h.channel.nml"/> 
+    <Include file="/channels/kaprox.channel.nml"/> 
+    <Include file="/channels/kaprox_axon.channel.nml"/> 
+    <Include file="/channels/kd.channel.nml"/> 
+    <Include file="/channels/kdrca1.channel.nml"/> 
+    <Include file="/channels/km.channel.nml"/> 
+    <Include file="/channels/na3.channel.nml"/> 
+    <Include file="/channels/nax.channel.nml"/> 
+ 
+<!-- Simulation specifications -->
+
+    <Simulation id="sim1" length="300ms" step="0.01ms" target="network">
+
+        <Display id="d1" title="CA3 PC cell with 0.1nA input" timeScale="1ms" xmin="-10" xmax="310" ymin="-85" ymax="55">
+            <Line id="CA3 PC V(mV)" quantity="Pop_ca3pyramidalcell/0/ca3pyramidalcell/v" scale="1mV" color="#0000FF" timeScale="1ms"/>
+        </Display>
+    
+        <OutputFile id="of0" fileName="ca3pyr.dat">
+            <OutputColumn id="v" quantity="Pop_ca3pyramidalcell/0/ca3pyramidalcell/v"/>
+        </OutputFile>
+      
+    </Simulation>
+  
+</Lems>

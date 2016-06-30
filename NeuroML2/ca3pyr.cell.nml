@@ -2,17 +2,25 @@
 
 
     <include href="/channels/leak_chan.channel.nml"/>
-    <include href="/channelscapool.nml"/>
+    <include href="/channels/capool.nml"/>
      
     <include href="/channels/cal.channel.nml"/> 
     <include href="/channels/can.channel.nml"/> 
     <include href="/channels/cat.channel.nml"/>
     <include href="/channels/cagk.channel.nml"/>
     <include href="/channels/KahpM95.channel.nml"/>
+    <include href="/channels/h.channel.nml"/> 
+    <include href="/channels/kaprox.channel.nml"/> 
+    <include href="/channels/kaprox_axon.channel.nml"/> 
+    <include href="/channels/kd.channel.nml"/> 
+    <include href="/channels/kdrca1.channel.nml"/> 
+    <include href="/channels/km.channel.nml"/> 
+    <include href="/channels/na3.channel.nml"/> 
+    <include href="/channels/nax.channel.nml"/> 
     
     
     <cell id="ca3pyramidalcell">
-        <notes>Cell: ca3pyramidalcell_0_0 exported from NEURON ModelView</notes>
+        <notes>Cell: ca3pyramidalcell exported from NEURON ModelView</notes>
         <morphology id="morphology">
             <segment id="0" name="Seg0_soma_0">
                 <proximal x="-1.135000e+00" y="2.100000e+01" z="1.702000e+00" diameter="1.321000e+01"/>
@@ -11213,7 +11221,7 @@
                 <include segmentGroup="axon_0"/>
             </segmentGroup>
            
-            <segmentGroup id="apical_dendrite_1-_group"> 
+            <segmentGroup id="apical_dendrite_others_group"> 
                 <include segmentGroup="apical_dendrite_1"/> 
                 <include segmentGroup="apical_dendrite_2"/> 
                 <include segmentGroup="apical_dendrite_3"/> 
@@ -11298,7 +11306,7 @@
             
             <segmentGroup id="apical_dendrite_group">
                 <include segmentGroup="apical_dendrite_0_group"/>
-                <include segmentGroup="apical_dendrite_1-_group"/>
+                <include segmentGroup="apical_dendrite_others_group"/>
             </segmentGroup>
             
             <segmentGroup id="dendrite_group">
@@ -11356,7 +11364,8 @@
                 <include segmentGroup="dendrite_51"/>
             </segmentGroup>
             
-            <segmentGroup id="alldendrites_group">
+            <segmentGroup id="soma_and_dendrites_group">
+                <include segmentGroup="soma_group"/>
                 <include segmentGroup="apical_dendrite_group"/>
                 <include segmentGroup="dendrite_group"/>
             </segmentGroup>
@@ -11364,29 +11373,27 @@
             <segmentGroup id="axon_group">
                 <include segmentGroup="axon_0"/>
             </segmentGroup>
-            
 
-          
         </morphology>
-        
-        
+
         <!-- Biophysical properties -->
         <biophysicalProperties id="biophys"> 
 
-            <membraneProperties>
-
-                <channelDensity id="leak_all" ionChannel="leak_chan" condDensity="0.039416633819471816mS_per_cm2" segmentGroup="all" erev="-64mV" ion="non_specific"/>
-                
-                <!--0.01--><channelDensityGHK2 id="cal_soma" ionChannel="cal" condDensity="0.01mS_per_cm2" segmentGroup="soma_group" ion="ca"/>
-                <!--0.01--><channelDensityGHK2 id="cal_alldendrites" ionChannel="cal" condDensity="0.01mS_per_cm2" segmentGroup="alldendrites_group" ion="ca"/>
-                <!--0.01--><channelDensityGHK2 id="can_soma" ionChannel="can" condDensity="0.01mS_per_cm2" segmentGroup="soma_group" ion="ca"/>
-                <!--0.01--><channelDensityGHK2 id="can_alldendrites" ionChannel="can" condDensity="0.01mS_per_cm2" segmentGroup="alldendrites_group" ion="ca"/>
-                <!--0.01--><channelDensityGHK2 id="cat_soma" ionChannel="cat" condDensity="0.01mS_per_cm2" segmentGroup="soma_group" ion="ca"/>
-                <!--0.01--><channelDensityGHK2 id="cat_alldendrites" ionChannel="cat" condDensity="0.01mS_per_cm2" segmentGroup="alldendrites_group" ion="ca"/>             
-                <!--0.05--><channelDensity id="cagk_soma" ionChannel="cagk" condDensity="0.05mS_per_cm2" segment_group="soma_group" erev="-90mV" ion="k"/>
-                <!--0.05--><channelDensity id="cagk_alldendrites" ionChannel="cagk" condDensity="0.05mS_per_cm2" segment_group="alldendrites_group" erev="-90mV" ion="k"/>
-                <!--0.1--><channelDensity id="KahpM95_soma" ionChannel="KahpM95" condDensity="0.1mS_per_cm2" segment_group="soma_group" erev="-90mV" ion="k"/>
-                <!--0.1--><channelDensity id="KahpM95_alldendrites" ionChannel="KahpM95" condDensity="0.1mS_per_cm2" segment_group="alldendrites_group" erev="-90mV" ion="k"/>
+            <membraneProperties>              
+                <channelDensityGHK2 id="cal_soma_dend" ionChannel="cal" condDensity="0.01mS_per_cm2" segmentGroup="soma_and_dendrites_group" ion="ca"/>               
+                <channelDensityGHK2 id="can_soma_dend" ionChannel="can" condDensity="0.01mS_per_cm2" segmentGroup="soma_and_dendrites_group" ion="ca"/>
+                <channelDensityGHK2 id="cat_soma_dend" ionChannel="cat" condDensity="0.01mS_per_cm2" segmentGroup="soma_and_dendrites_group" ion="ca"/>
+                <channelDensity id="leak_all" ionChannel="leak_chan" condDensity="0.039416 mS_per_cm2" segmentGroup="all" erev="-64mV" ion="non_specific"/>
+                <channelDensity id="cagk_soma_dend" ionChannel="cagk" condDensity="0.05mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="-90mV" ion="k"/>
+                <channelDensity id="KahpM95_soma_dend" ionChannel="KahpM95" condDensity="0.1mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="-90mV" ion="k"/>
+                <channelDensity id="h_soma_dend" ionChannel="hd" condDensity="0.01mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="-30mV" ion="non_specific"/>
+                <channelDensity id="kaprox_soma_dend" ionChannel="kaprox" condDensity="20mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="-90mV" ion="k"/>
+                <channelDensity id="kaprox_axon_axon" ionChannel="kaprox_axon" condDensity="20mS_per_cm2" segmentGroup="axon_group" erev="-90mV" ion="k"/>
+                <channelDensity id="kd_soma_dend" ionChannel="kd" condDensity="0mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="-90mV" ion="k"/>
+                <channelDensity id="kdrca1_all" ionChannel="kdrca1" condDensity="5mS_per_cm2" segmentGroup="all" erev="-90mV" ion="k"/>
+                <channelDensity id="km_soma" ionChannel="km" condDensity="17mS_per_cm2" segmentGroup="soma_group" erev="-90mV" ion="k"/>
+                <channelDensity id="na3_soma_dend" ionChannel="na3" condDensity="22mS_per_cm2" segmentGroup="soma_and_dendrites_group" erev="55mV" ion="na"/>
+                <channelDensity id="na3_axon" ionChannel="na3" condDensity="110mS_per_cm2" segmentGroup="axon_group" erev="55mV" ion="na"/>
                 
                 <spikeThresh value="0 mV"/>
                 <specificCapacitance value="1.41 uF_per_cm2" />
@@ -11395,11 +11402,11 @@
             </membraneProperties> 
 
             <intracellularProperties>
-                <resistivity value="0.15 kohm_cm"/>
-                <species id="ca" concentrationModel="capool_diam_13_21" segmentGroup="soma_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
-                <species id="ca" concentrationModel="capool_diam_7_3" segmentGroup="apical_dendrite_0_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
-                <species id="ca" concentrationModel="capool_diam_0_729471890971" segmentGroup="apical_dendrite_1-_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
-                <species id="ca" concentrationModel="capool_diam_0_663679808841" segmentGroup="dendrite_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
+                <resistivity value="0.15kohm_cm"/>
+                <species id="ca_soma" concentrationModel="capool_diam_13_21" segmentGroup="soma_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
+                <species id="ca_ap0" concentrationModel="capool_diam_7_3" segmentGroup="apical_dendrite_0_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
+                <species id="ca_apical" concentrationModel="capool_diam_0_729471890971" segmentGroup="apical_dendrite_others_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
+                <species id="ca_basal" concentrationModel="capool_diam_0_663679808841" segmentGroup="dendrite_group" ion="ca" initialConcentration="5e-5mM" initialExtConcentration="2mM"/>
             </intracellularProperties>
 
         </biophysicalProperties>
