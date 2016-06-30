@@ -6,10 +6,12 @@ Model from: Distinct classes of pyramidal cells exhibit mutually exclusive firin
 
 This model was originally developed in [NEURON](https://www.neuron.yale.edu/neuron/)
 
-More details on the original NEURON version of this model [here](https://github.com/andrisecker/Hemond2008-CA3Pyr/tree/master/ModelDB)
+More details on the original NEURON version of this model [here](/ModelDB/)
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 ### NeuroML2/LEMS version of model
 
 This model will be converted to NeuroML2/LEMS ...
+
+[![Build Status](https://travis-ci.org/OpenSourceBrain/Hemond2008-CA3PyramidalCell.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/Hemond2008-CA3PyramidalCell)
