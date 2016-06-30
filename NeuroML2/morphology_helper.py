@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """ 
-    Helper method for dealing with NeuroML2 morphologies:
-    1) in NEURON one can specify (eg.) a synaptic terminal along a segment group
-    in NeuroML2 this is not possible, only along segments (with segmentID-not the name of the segment)
-    -> this methods converts fractionAlong in a segmentGroup (NEURON way of doing it) into fractionAlong in a segment within a segment group (NeuroML2 way of doing it)
-    2) the code deletes the numberInternalDivisions from annotation (will be valid -> it will be possible to visualize it on OSB)
+    Helper method to handle Ca++ dynamics in the pyramidal cell model of Hemond 2008 (implemented by Migliore)
+    1) the code deletes numberInternalDivisions from annotation (makes it a valid nml file)
+    2) iterates over segments and creates new segment groups based on diameter (the depth of Ca++ shell is changed (from hoc level) according to the diameter in the original code)
     Authors: András Ecker, Padraig Gleeson
 """
 
