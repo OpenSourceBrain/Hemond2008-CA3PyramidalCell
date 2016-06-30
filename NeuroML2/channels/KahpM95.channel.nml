@@ -26,7 +26,7 @@
         <Dynamics>
             <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
             
-            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i*ca_conc_i*ca_conc_i*ca_conc_i"/>
+            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i^4"/>
             
             <DerivedVariable name="t" dimension="time" value="( 1 / (5e-3 + alpha) ) * TIME_SCALE" exposure="t" />
         </Dynamics>
@@ -45,7 +45,7 @@
         <Dynamics>
             <DerivedVariable name="ca_conc_i" dimension="none" value="caConc / CONC_SCALE"/>
             
-            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i*ca_conc_i*ca_conc_i*ca_conc_i"/>
+            <DerivedVariable name="alpha" dimension="none" value="1e8 * ca_conc_i^4"/>
             
             <DerivedVariable name="x" dimension="none" value="alpha / (5e-3 + alpha)" exposure="x" />
         </Dynamics>
