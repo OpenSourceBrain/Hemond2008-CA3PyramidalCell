@@ -1,0 +1,7 @@
+system: Testing Ferrante et al 2009 Dentate gyrus granule cell model
+
+experiments:
+  current clamp:
+    expected:
+      spike times: [110.51, 118.85, 130.2]
+
