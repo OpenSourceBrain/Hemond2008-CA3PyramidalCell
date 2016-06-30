@@ -3,6 +3,58 @@
 
     <notes>NeuroML file containing Ca++ dynamics </notes>
     
+    	<HemondCaConcentrationModel id="capool_diam_13_21" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="6.605um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_0_9" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.45um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_0_8" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.4um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_1" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.55um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_0_6" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.3um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_8" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.9um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_7" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.85um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_3" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.65um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_3_6" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.8um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_2_9" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.45um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_7_8" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="3.9um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_7_2" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="3.6um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_7_3" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="3.65um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_0" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.5um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_0_4" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.2um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_3_1" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.55um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_4_9" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="2.45um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_6_4" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="3.2um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_0_3" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.15um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_6" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.8um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_2_4" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.2um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_3_2" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.6um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_2_6" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="1.3um"/>
+
+	<HemondCaConcentrationModel id="capool_diam_1_2" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.6um"/>
+
+        
+<!-- top: generated capools (morphology_helper.py), botton: Component type, and capool for testing ... -->        
+        
+        
     <HemondCaConcentrationModel id="capool" ion="ca" decayConstant="100ms" restingConc="5e-5mM" shellThickness="0.1um"/>
        
         <ComponentType name="HemondCaConcentrationModel"
