@@ -33,8 +33,8 @@
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
             <DerivedVariable name="T" dimension="none" value="temperature / TEMP_SCALE"/>
             
-            <DerivedVariable name="alpha" dimension="none" value="exp((1e-3*(-3)*(V-13)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
-            <DerivedVariable name="beta" dimension="none" value="exp((1e-3*(-3)*0.7*(V-13)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
+            <DerivedVariable name="alpha" dimension="none" value="exp((1e-3*(-3)*(V-37)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
+            <DerivedVariable name="beta" dimension="none" value="exp((1e-3*(-3)*0.7*(V-37)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
 
             <DerivedVariable name="tmp" value="beta / (0.02*(1 + alpha))" dimension="none"/>
             <ConditionalDerivedVariable name="t" dimension="time" exposure="t" >
@@ -61,7 +61,7 @@
             <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
             <DerivedVariable name="T" dimension="none" value="temperature / TEMP_SCALE"/>
             
-            <DerivedVariable name="alpha" dimension="none" value="exp((1e-3*(-3)*(V-13)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
+            <DerivedVariable name="alpha" dimension="none" value="exp((1e-3*(-3)*(V-37)*F) / (R*(T+0.01)))"/> <!-- NEURON code: 273.16 + celsius-->
             
             <DerivedVariable name="x" exposure="x" dimension="none" value="1 / (1 + alpha)"/>
         </Dynamics>
