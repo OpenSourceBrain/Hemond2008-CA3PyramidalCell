@@ -111,6 +111,21 @@ Channel information
 </tr>
     <tr>
 <td width="120px">
+            <sup><b>KahpM95</b><br/>
+            <a href="../KahpM95.channel.nml">KahpM95.channel.nml</a><br/>
+            <b>Ion: k</b><br/>
+            <i>g = gmax * w </i><br/>
+            Borg-Graham type generic K-AHP channel descriptions (from Borg and Graham 1995, modeled by Migliore, modified by Lazarewicz)</sup>
+</td>
+<td>
+<a href="KahpM95.inf.png"><img alt="KahpM95 steady state" src="KahpM95.inf.png" height="220"/></a>
+</td>
+<td>
+<a href="KahpM95.tau.png"><img alt="KahpM95 time course" src="KahpM95.tau.png" height="220"/></a>
+</td>
+</tr>
+    <tr>
+<td width="120px">
             <sup><b>cal</b><br/>
             <a href="../cal.channel.nml">cal.channel.nml</a><br/>
             <b>Ion: ca</b><br/>
