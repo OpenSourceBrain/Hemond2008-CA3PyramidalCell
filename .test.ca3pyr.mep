@@ -1,4 +1,4 @@
-system: Testing Ferrante et al 2009 Dentate gyrus granule cell model
+system: Testing Hemond et al 2008 CA3 pyramidal cell model
 
 experiments:
   current clamp:
