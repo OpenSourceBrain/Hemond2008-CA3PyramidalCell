@@ -12,6 +12,11 @@ More details on the original NEURON version of this model [here](/ModelDB/)
 
 ### NeuroML2/LEMS version of model
 
-This model will be converted to NeuroML2/LEMS ...
+The model has been converted to NeuroML2/LEMS:
 
 [![Build Status](https://travis-ci.org/OpenSourceBrain/Hemond2008-CA3PyramidalCell.svg?branch=master)](https://travis-ci.org/OpenSourceBrain/Hemond2008-CA3PyramidalCell)
+
+More details on the NeuroML2/LEMS version of this model [here](/NeuroML2/).
+- there is an issue with the NeuroML2 version of the model:
+ a) the depth of the capool ([.mod](/NEURON/cacumm.mod), [.nml](/NeuroML2/channels/capool.nml)) is changed (from hoc level) when placed to the segments, according to the diam of the segment see hoc code [here](/NEURON/test_ca3pyr.hoc).
+ b) in the NeuroML2 version the capool works with averaged diams (for soma, basal dendrites and apical dendrites)
