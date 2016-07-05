@@ -1,0 +1,17 @@
+target: test_ca3pyr.hoc
+engine: NEURON
+mep: ../.test.ca3pyr.mep
+
+experiments:
+  current clamp:
+    observables:
+      spike times:
+        file:
+          path: ca3pyr.dat
+          columns: [0, 1]
+          scaling: [1, 1]
+        spike detection:
+          method: threshold
+          threshold: 0
+        tolerance: 0.0
+
